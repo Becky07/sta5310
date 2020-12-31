@@ -1,0 +1,122 @@
+---
+title: "STAT 5310 (Winter 2021) - Assignment 1"
+author: |
+  | Last name: put your last name here
+  | First name: put your first name here
+  | Student ID: ######## 
+  | Course section: STAT 5310
+date: "Jan. ??, 2021"
+output: pdf_document
+fontsize: 10pt
+
+---
+
+## Q1. [2 pts] R experiment.
+Suppose that $X\sim N(1,2^2)$, find $P(X>2)$ in R.
+
+### \textcolor{blue}{Q1 Solution:}
+
+```{r, echo=TRUE}
+# Find P(X>2) where X~N(1,2^2)
+# Put your code below and run to get result
+
+```
+
+## Q2. [3 pts] R experiment.
+Plot densities and associated CDFs for Exponential($\lambda$), where $\lambda=c(0.2,1,2)$, make comments on both plots. (hint: Check up the R code for Exponential distribution in CH2.4 )
+
+### \textcolor{blue}{Q2 Solution:}
+
+``````{r, include=TRUE,fig.height = 4,fig.width=8,fig.align='center'}
+# Plot Exp(lambda) densities and its CDF
+# Put your code below and run to get result
+
+```
+
+## Q2. [10 pts] Weighing problem. 
+A scientist has two light objects to weigh. She decides to use an old fashioned pan balance scale in the lab since she heard about a design from a colleague that is supposed to increase the accuracy of her measurements and take less time.
+
+The scientist decides to obtain weight measurements using the following design:
+
+- weigh the two objects together in one pan;
+- weigh one object in one pan, and the other object in the other pan;
+- pick one of two objects, and weigh it
+
+In a pan balance scale when one object is in one pan and another object is in another pan the measurement obtained is the difference in weight between the two objects.
+
+Let $y_1$, $y_2$, $y_3$ be the readings from the scale, and $\beta_1$ the weight of the object that has been on the scale through all three weighings and $\beta_2$ the other object. The standard deviation of each weighing is denoted by $\sigma$.
+
+Answer the following questions
+
+(a) [2 pts] Write three equations relating the observed weights $y_1$, $y_2$, $y_3$ to the unknown weights $\beta_1,\beta_2$. Make sure to include an appropriate error term and any necessary assumptions about the error term.
+
+(b) [3 pts] Find the least-squares estimate of $\beta_1,\beta_2$.
+
+(c) [2 pts] Find the standard error of the least squares estimates of $\beta_1,\beta_2$.
+
+(d) [3 pts] If the scientist measured each object three times could she achieve the same precision (standard error) as this design? Explain. 
+
+
+
+### \textcolor{blue}{Q3 Solution}
+
+The following set of equations models the weighing scheme. 
+
+$$\begin{aligned}
+y_1 &= \beta_1 x_{11} +\beta_2 x_{12}  + \epsilon_1 \\
+y_2 &= \beta_1 x_{21} +\beta_2 x_{22}  + \epsilon_2 \\
+y_3 &= \beta_1 x_{31} +\beta_2 x_{32}  + \epsilon_3  
+\end{aligned}$$
+where 
+$$ x_{ij} = \left\{
+	\begin{array}{ll}
+		1  & \mbox{if the } i^{th} \mbox{ measurement of the }  j^{th} \mbox{ object is in the left pan}  \\
+		-1 & \mbox{if the } i^{th} \mbox{ measurement of the }  j^{th} \mbox{ object is in right pan,}
+	\end{array}
+\right.$$
+and Var$(\epsilon_i)=\sigma^2, i=1,2,3$. 
+NB: the pan that's coded as 1 or -1 is arbitrary. 
+
+
+(a) Type your concise and clear answer here.
+
+According to the design given, replace the $x_{ij}$ with certain values, so that the observed measurements $y_i$ are related to the unknown weights $\beta_i$ via the three equations.(Replace the $x_{ij}$ with correct constant as your answer)
+
+$$\begin{aligned}
+y_1 &= \beta_1 x_{11} +\beta_2 x_{12}  + \epsilon_1 \\
+y_2 &= \beta_1 x_{21} +\beta_2 x_{22}  + \epsilon_2 \\
+y_3 &= \beta_1 x_{31} +\beta_2 x_{32}  + \epsilon_3  
+\end{aligned}$$
+
+
+(b) The least squares estimates can be found using $\hat\beta = (X'X)^{-1}X'y$. Where X is a 3 by 2 matrix. Using R to find $(X'X)^{-1}X$, then multiply it by $y$.
+
+```{r, echo=TRUE}
+# Your R code to find (X'X)^{-1}X', 
+# check week1 slides to learn how to write the code
+#
+```
+Based on the R output, we have 
+$$\begin{aligned}
+\hat{\beta}_1 &=  ? \\
+\hat{\beta}_2 &= ? 
+\end{aligned}$$
+
+(c) Type your concise and clear answer here.
+
+$$\begin{aligned}
+se(\hat{\beta}_1) &=  ?\sigma \\
+se(\hat{\beta}_2) &= ? \sigma
+\end{aligned}$$
+
+(d) Type your concise and clear answer here.
+
+For three weighings of each object, the precision
+$$\begin{aligned}
+se(\hat{\beta}_1) &=  ?\sigma \\
+se(\hat{\beta}_2) &= ? \sigma
+\end{aligned}$$
+
+Comments: 
+
+
